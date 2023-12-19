@@ -1,4 +1,5 @@
 ﻿global using Mercia.Lexing;
+global using Mercia.Parsing;
 
 namespace Mercia;
 
@@ -45,7 +46,9 @@ class Program
             
             Lexer lexer = new(line);
             var tokens = lexer.Lex();
-            Lexer.PrintTokens(tokens);
+            //Lexer.PrintTokens(tokens);
+            Parser parser = new(tokens);
+            parser.Parse();
         }
     }
 }
